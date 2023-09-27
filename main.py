@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import Chroma
 import os
@@ -7,6 +8,8 @@ from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 import re
 from constants import CHROMA_SETTINGS
+
+load_dotenv()
 
 PRIMARY_MODEL_PATH = os.environ.get("PRIMARY_MODEL_PATH")
 SECONDARY_MODEL_PATH = os.environ.get("SECONDARY_MODEL_PATH")
