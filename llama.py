@@ -1,8 +1,7 @@
-from dotenv import load_dotenv
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import Chroma
-import chromadb
 import os
+import chromadb
 from langchain.llms import LlamaCpp
 from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
@@ -80,7 +79,7 @@ def call_db():
 def main():   
     
     db = call_db()
-    llm = load_llm(PRIMARY_MODEL_PATH)
+    llm = load_llm(SECONDARY_MODEL_PATH)
     
     count = db._collection.count() - 1
     chunk_count = count//2
