@@ -8,6 +8,7 @@ Then open the folder in VSCode
 cd into your folder
 
 Then, run python -m venv openbook on your powershell or cmd
+Run source openbook/bin/activate
 Run pip install -r requirements.txt
 If that throws an error, run pip install -r requirements.txt --user
 
