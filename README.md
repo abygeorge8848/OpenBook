@@ -6,6 +6,7 @@ git clone https://github.com/abygeorge8848/OpenBook.git  in the directory you wa
 Then open the folder in VSCode
 
 cd into your folder
+Rename 'example.env' to just '.env'  
 
 Then, run python -m venv openbook on your powershell or cmd
 Run source openbook/bin/activate
