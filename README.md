@@ -1,4 +1,4 @@
-HI!
+Hi!
 
 First run :
 git clone https://github.com/abygeorge8848/OpenBook.git  in the directory you want this folder in
