@@ -1,0 +1,107 @@
+Mistral Instruct :
+------------------
+
+check chapter :
+<s>[INST]Check in the DATA given below, whether there is a Chapter name. If there is no chapter name, only return 'NONE' as the response. If there is a Chapter name, return ONLY the chapter name.
+           DATA - {data}[/INST]
+
+
+extract chapter :
+<s>[INST]The SENTENCE given below has the name of a chapter in it. Extract the name of the chapter and only return that.
+    
+    SENTENCE :{data}[/INST]
+
+
+
+
+
+
+Mistral Orca :
+---------------
+
+OnlyCheckChapter :
+<|im_start|>system
+    You are an AI assistant who will give only True or False responses to the questions asked.
+    <|im_end|>
+    <|im_start|>user
+    From the below data, check whether the word 'CHAPTER' or 'Chapter' is present or not.
+    DATA : {data}
+    <|im_end|> 
+    <|im_start|>assistant
+
+
+
+
+
+Llama 2 - correct format :
+--------------------------
+
+<s>[INST] <<SYS>>\nYou are an AI assistant making question-answer pairs from the given data in the format - ```Question n : question, Answer n : answer```\n<</SYS>>\n\nMake 3 question-answer pairs from the DATA : {data} [/INST]
+
+<s>[INST] <<SYS>>\nYou are an AI assistant making bullet points\n<</SYS>>\n\nReturn 3 bullet points from the DATA : {data} [/INST]
+
+<s>[INST] <<SYS>>\nYou are an AI assistant\n<</SYS>>\n\nTake the SENTENCE given below and turn it into a 'Fill in the blank' question by replacing a word from it with a blank and return the response in the format ```Question : question, Answer : answer```. Where question represents the sentence with the word replaced with the blank and the answer is just the replaced word. Return nothing else. SENTENCE - {data} [/INST]
+
+
+        QA :
+
+        prompt = f"""<s>[INST] <<SYS>>\nYou are an AI assistant converting raw data into question-answer pairs. DO NOT ASK QUESTIONS REFERENCING THE TEXT OR ANY CHAPTER.\n<</SYS>>\n\nMake 3 question-answer pairs with information from the DATA: {data} [/INST]
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Llama 2 - 13B :
+--------------
+
+
+QUESTION :
+    Use the DATA given below to make and return ONLY three question-answer pairs from the below data and return them in the format:
+    ```Question n : question,   Answer n : answer```
+            DATA : {data} 
+            
+    ANSWER :
+
+
+
+
+From the DATA given below, return the 3 most important facts AS BULLET POINTS: 
+ 
+    DATA : {data}
+
+
+
+
+Question : Take the SENTENCE given below and turn it into a 'Fill in the blank' question by replacing a word from it with a blank and return the response in the format ```Question : question, Answer : answer```
+    Where question represents the sentence with the word replaced with the blank and the answer is just the replaced word. Return nothing else.
+    
+        SENTENCE - {data}
+    
+    
+    Response :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
