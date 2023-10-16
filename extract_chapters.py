@@ -35,7 +35,7 @@ def generate_raw_data():
     db = call_db()
     count = db._collection.count() - 1
     docs = db.get(limit=count, offset=0)['documents']
-    FIRST_OCCURENCE = True
+    
     for i in range(count+1):
         if 'CHAPTER' in docs[i]:
             chunk_likeliness_chapter = 0.3
