@@ -6,7 +6,7 @@ db_params = {
     'port': '5432',
     'dbname': 'book',
     'user': 'postgres',
-    'password': 'Aby@36261',
+    'password': '',
 }
 
 sqlite_conn = sqlite3.connect('raw_data/book.db')
