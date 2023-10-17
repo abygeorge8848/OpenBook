@@ -176,6 +176,61 @@ def insert_bp(chapter_id, bullet_point):
     finally:
         if conn:
             conn.close()
+            
+            
+def insert_questions(question):
+    try:
+        conn = sqlite3.connect('raw_data/test.db')
+        cursor = conn.cursor()
+
+        cursor.execute("INSERT INTO questions (question) VALUES (?)",
+                           (question,))
+        conn.commit()
+            
+    except sqlite3.Error as e:
+        print("\n SQLite error has occured : ", e)
+        return None
+    
+    finally:
+        if conn:
+            conn.close()
+            
+def insert_answers(answer):
+    try:
+        conn = sqlite3.connect('raw_data/test.db')
+        cursor = conn.cursor()
+
+        cursor.execute("INSERT INTO answers (answer) VALUES (?)",
+                           (answer,))
+        conn.commit()
+            
+    except sqlite3.Error as e:
+        print("\n SQLite error has occured : ", e)
+        return None
+    
+    finally:
+        if conn:
+            conn.close()
+            
+            
+
+def retrieve_answers():
+    try:
+        conn = sqlite3.connect('raw_data/test.db')
+        cursor = conn.cursor()
+        cursor.execute("SELECT answer from answers")
+        data = cursor.fetchall()
+        
+        return data
+            
+    except sqlite3.Error as e:
+        print("\n SQLite error has occured : ", e)
+        return None
+    
+    finally:
+        if conn:
+            conn.close()
+        
     
     
     
